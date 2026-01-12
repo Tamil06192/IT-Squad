@@ -167,3 +167,82 @@ window.updateChartCenter = function (chartContainerId, title, value) {
     if (valueEl) valueEl.textContent = value;
     if (labelEl) labelEl.textContent = title;
 };
+
+/* -------------------------------------------------------------------------- */
+/*                                Admin Modal                                 */
+/* -------------------------------------------------------------------------- */
+const addUserBtn = document.getElementById('add-user-btn');
+const addUserModal = document.getElementById('add-user-modal');
+const closeModalBtn = document.getElementById('close-modal');
+const cancelModalBtn = document.getElementById('cancel-modal');
+
+if (addUserBtn && addUserModal) {
+    addUserBtn.addEventListener('click', () => {
+        addUserModal.style.display = 'flex';
+    });
+
+    const closeModal = () => {
+        addUserModal.style.display = 'none';
+    };
+
+    closeModalBtn.addEventListener('click', closeModal);
+    cancelModalBtn.addEventListener('click', closeModal);
+
+    // Close on outside click
+    addUserModal.addEventListener('click', (e) => {
+        if (e.target === addUserModal) closeModal();
+    });
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Stats Counter                                 */
+/* -------------------------------------------------------------------------- */
+const stats = document.querySelectorAll('.stat-number');
+
+if (stats.length > 0) {
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const value = parseFloat(target.getAttribute('data-target'));
+                const suffix = target.innerText.replace(/[0-9.]/g, ''); // Get non-numeric chars
+
+                let start = 0;
+                const duration = 2000;
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Ease out quart
+                    const ease = 1 - Math.pow(1 - progress, 4);
+
+                    const currentVal = Math.floor(value * ease);
+
+                    // Handle decimals if target has decimal
+                    if (value % 1 !== 0) {
+                        target.innerText = (value * ease).toFixed(1) + suffix;
+                    } else {
+                        target.innerText = Math.floor(value * ease) + suffix;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        target.innerText = value + suffix;
+                    }
+                };
+
+                requestAnimationFrame(updateCount);
+                observer.unobserve(target);
+            }
+        });
+    }, observerOptions);
+
+    stats.forEach(stat => statsObserver.observe(stat));
+}
