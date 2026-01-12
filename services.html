@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-body);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .process-step {
+            position: relative;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--bg-card);
+            transition: transform 0.3s;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD</a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero"
+            style="min-height: 40vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+            <div class="container" style="text-align: center;">
+                <div class="hero-content animate-fade-up" style="margin: 0 auto; color: white;">
+                    <h1 style="color: white;">Our Services</h1>
+                    <p style="margin: 0 auto; color: #e2e8f0;">Comprehensive IT solutions designed for your success.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="grid animate-fade-up delay-200"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Service 1 -->
+                    <div class="card">
+                        <div class="service-icon"><i class='bx bx-laptop'></i></div>
+                        <h3>Hardware Support</h3>
+                        <p style="color: var(--text-muted); margin: 1rem 0;">Diagnostic, repair, and maintenance for
+                            desktops, laptops, and peripherals.</p>
+                        <a href="#" style="color: var(--primary);">Learn more &rarr;</a>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="card">
+                        <div class="service-icon"><i class='bx bx-globe'></i></div>
+                        <h3>Network Solutions</h3>
+                        <p style="color: var(--text-muted); margin: 1rem 0;">Design, installation, and management of
+                            secure wired and wireless networks.</p>
+                        <a href="#" style="color: var(--primary);">Learn more &rarr;</a>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="card">
+                        <div class="service-icon"><i class='bx bx-cloud'></i></div>
+                        <h3>Cloud Services</h3>
+                        <p style="color: var(--text-muted); margin: 1rem 0;">Azure and AWS management, migration
+                            assistance, and cloud security.</p>
+                        <a href="#" style="color: var(--primary);">Learn more &rarr;</a>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="card">
+                        <div class="service-icon"><i class='bx bx-lock-alt'></i></div>
+                        <h3>Cyber Security</h3>
+                        <p style="color: var(--text-muted); margin: 1rem 0;">Penetration testing, firewall
+                            configuration, and threat monitoring.</p>
+                        <a href="#" style="color: var(--primary);">Learn more &rarr;</a>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="card">
+                        <div class="service-icon"><i class='bx bx-data'></i></div>
+                        <h3>Data Recovery</h3>
+                        <p style="color: var(--text-muted); margin: 1rem 0;">Professional recovery services for lost or
+                            corrupted business data.</p>
+                        <a href="#" style="color: var(--primary);">Learn more &rarr;</a>
+                    </div>
+                    <!-- Service 6 -->
+                    <div class="card">
+                        <div class="service-icon"><i class='bx bx-headphone'></i></div>
+                        <h3>IT Consulting</h3>
+                        <p style="color: var(--text-muted); margin: 1rem 0;">Strategic planning to align your technology
+                            with your business goals.</p>
+                        <a href="#" style="color: var(--primary);">Learn more &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Process -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How We Work</h2>
+                    <p>A streamlined process to solve your problems.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">We start by understanding your business
+                            needs, pain points, and goals through a free consultation.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Strategy</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">Our experts design a tailored solution
+                            plan, outlining the technologies and timeline involved.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Execution</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">We implement the solution with minimal
+                            disruption to your daily operations.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Support</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">We provide ongoing monitoring and
+                            support to ensure everything continues to run smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies We Support -->
+        <section>
+            <div class="container" style="text-align: center;">
+                <div class="section-title">
+                    <h2>Technologies We Master</h2>
+                    <p>We work with the industry's best standards.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(6, 1fr); gap: 2rem; align-items: center;">
+                    <div style="font-size: 3rem; color: #0078D7; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-windows'></i></div>
+                    <div style="font-size: 3rem; color: #555555; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-apple'></i></div>
+                    <div style="font-size: 3rem; color: #FF9900; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-aws'></i></div>
+                    <div style="font-size: 3rem; color: #4285F4; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-google-cloud'></i></div>
+                    <div style="font-size: 3rem; color: #336791; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxs-data'></i></div>
+                    <div style="font-size: 3rem; color: #E95420; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"><i
+                            class='bx bxl-tux'></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="background: var(--gradient-hero); padding: 6rem 0;">
+            <div class="container" style="text-align: center;">
+                <h2 style="margin-bottom: 1rem; font-size: 2.5rem;">Ready to upgrade your IT infrastructure?</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 1.2rem;">Get in touch with us today
+                    for a free network audit.</p>
+                <a href="contact.html" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">Contact Us
+                    Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>IT SQUAD</h3>
+                    <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
+                        infrastructure management. We provide reliable, secure, and scalable solutions for companies of
+                        all sizes.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service-details.html">Help Desk</a></li>
+                        <li><a href="service-details.html">Cyber Security</a></li>
+                        <li><a href="service-details.html">Cloud Migration</a></li>
+                        <li><a href="service-details.html">Network Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class='bx bx-map'></i> 123 Innovation Drive, Tech City, CA</li>
+                        <li><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
+                        <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                    </ul>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 IT SQUAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

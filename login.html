@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @media (min-width: 768px) {
+            .hidden-mobile {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo">
+                <i class='bx bx-code-block'></i> IT SQUAD
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#" class="active">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-wrapper animate-fade-in"
+        style="min-height: calc(100vh - 80px); display: flex; align-items: center; padding: 2rem 0;">
+        <div class="container">
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: center; background: var(--bg-card); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--border);">
+
+                <!-- Left Content Side -->
+                <div
+                    style="padding: 3rem; background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="margin-bottom: 2rem;">
+                        <img src="Assets/hero.jpg" alt="Login Graphic"
+                            style="border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; width: 100%; object-fit: cover; height: 250px;">
+                        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Welcome Back!</h2>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+                            Access your dashboard to manage tickets, view reports, and monitor your system status in
+                            real-time.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2" style="flex-direction: column;">
+                        <div class="flex items-center gap-1">
+                            <i class='bx bx-check-circle' style="color: var(--primary); font-size: 1.5rem;"></i>
+                            <span style="font-weight: 500;">Secure 256-bit Encryption</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <i class='bx bx-check-circle' style="color: var(--primary); font-size: 1.5rem;"></i>
+                            <span style="font-weight: 500;">24/7 Support Access</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <i class='bx bx-check-circle' style="color: var(--primary); font-size: 1.5rem;"></i>
+                            <span style="font-weight: 500;">Real-time Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Side -->
+                <div style="padding: 3rem;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h2 style="font-size: 2rem;">Sign In</h2>
+                        <p style="color: var(--text-muted);">Enter your credentials to continue</p>
+                    </div>
+
+                    <form action="user-dashboard.html">
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <div style="position: relative;">
+                                <i class='bx bx-envelope'
+                                    style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                                <input type="email" class="form-control" style="padding-left: 45px;"
+                                    placeholder="name@company.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <div style="position: relative;">
+                                <i class='bx bx-lock-alt'
+                                    style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                                <input type="password" class="form-control" style="padding-left: 45px;"
+                                    placeholder="••••••••">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center" style="margin-bottom: 2rem; font-size: 0.9rem;">
+                            <label class="flex items-center gap-1" style="cursor: pointer;">
+                                <input type="checkbox" style="accent-color: var(--primary);"> Remember me
+                            </label>
+                            <a href="#" style="color: var(--primary); font-weight: 500;">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1.5rem;">Sign
+                            In</button>
+
+                        <div style="text-align: center; font-size: 0.9rem; color: var(--text-muted);">
+                            Don't have an account? <a href="register.html"
+                                style="color: var(--primary); font-weight: 600;">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>IT SQUAD</h3>
+                    <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
+                        infrastructure management. We provide reliable, secure, and scalable solutions for companies of
+                        all sizes.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service-details.html">Help Desk</a></li>
+                        <li><a href="service-details.html">Cyber Security</a></li>
+                        <li><a href="service-details.html">Cloud Migration</a></li>
+                        <li><a href="service-details.html">Network Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class='bx bx-map'></i> 123 Innovation Drive, Tech City, CA</li>
+                        <li><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
+                        <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                    </ul>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 IT SQUAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD</a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐RTL</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero"
+            style="min-height: 40vh; background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(236, 72, 153, 0.9)), url('Assets/bg.jpg'); background-size: cover; background-position: center;">
+            <div class="container" style="text-align: center;">
+                <div class="hero-content animate-fade-up" style="margin: 0 auto; color: white;">
+                    <h1 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Get In Touch</h1>
+                    <p style="margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.25rem;">We'd love to hear from
+                        you. Here's how you can reach us.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="grid animate-fade-up delay-200"
+                    style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 4rem;">
+
+                    <div>
+                        <div class="section-title" style="text-align: left;">
+                            <h2>Points of Contact</h2>
+                            <p>Have a technical issue? Fill out the form or drop by our office.</p>
+                        </div>
+
+                        <div class="flex gap-2" style="flex-direction: column;">
+                            <div class="flex items-center gap-1">
+                                <div class="icon-btn" style="background: var(--primary); color: white;">
+                                    <i class='bx bx-map'></i>
+                                </div>
+                                <div>
+                                    <h4>Visit Us</h4>
+                                    <p style="color: var(--text-muted);">123 Innovation Drive, Tech
+                                        City, CA 94000</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <div class="icon-btn" style="background: var(--primary); color: white;">
+                                    <i class='bx bx-envelope'></i>
+                                </div>
+                                <div>
+                                    <h4>Email Us</h4>
+                                    <p style="color: var(--text-muted);">help@itsquad.com (24/7)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <div class="icon-btn" style="background: var(--primary); color: white;">
+                                    <i class='bx bx-phone'></i>
+                                </div>
+                                <div>
+                                    <h4>Call Us</h4>
+                                    <p style="color: var(--text-muted);">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <form>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <select class="form-control">
+                                    <option>Technical Support</option>
+                                    <option>Sales Inquiry</option>
+                                    <option>Partnership</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="5" placeholder="How can we help?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send
+                                Message</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section style="background-color: var(--bg-card); padding: 0;">
+            <div id="map" style="height: 250px; width: 100%;"></div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Common questions about our support services.</p>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <div class="faq-question">What are your support hours? <i class='bx bx-chevron-down'></i></div>
+                        <div class="faq-answer">Our helpdesk is active 24/7/365. We have teams
+                            distributed across
+                            multiple time zones to ensure there is always someone ready to assist you.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Do you support Macintosh systems? <i class='bx bx-chevron-down'></i>
+                        </div>
+                        <div class="faq-answer">Yes, we provide full support for macOS, Windows, and
+                            Linux environments.
+                            We are an Apple Consultants Network member.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">How fast is your response time? <i class='bx bx-chevron-down'></i>
+                        </div>
+                        <div class="faq-answer">For critical issues, our SLA guarantees a response
+                            within 15 minutes.
+                            For standard inquiries, we typically respond within 1 hour.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>IT SQUAD</h3>
+                    <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
+                        infrastructure management. We provide reliable, secure, and scalable solutions for companies of
+                        all sizes.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service-details.html">Help Desk</a></li>
+                        <li><a href="service-details.html">Cyber Security</a></li>
+                        <li><a href="service-details.html">Cloud Migration</a></li>
+                        <li><a href="service-details.html">Network Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class='bx bx-map'></i> 123 Innovation Drive, Tech City, CA</li>
+                        <li><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
+                        <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                    </ul>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 IT SQUAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([37.7749, -122.4194], 13); // San Francisco coordinates
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker for the company location
+        const marker = L.marker([37.7749, -122.4194]).addTo(map);
+
+        // Add a popup to the marker
+        marker.bindPopup('<b>IT SQUAD HQ</b><br>123 Innovation Drive<br>Tech City, CA 94000').openPopup();
+    </script>
+</body>
+
+</html>

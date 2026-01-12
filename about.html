@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD</a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero"
+            style="min-height: 40vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+            <div class="container" style="text-align: center;">
+                <div class="hero-content animate-fade-up" style="margin: 0 auto; color: white;">
+                    <h1 style="color: white;">About Our Team</h1>
+                    <p style="margin: 0 auto; color: #e2e8f0;">Dedicated to delivering the best IT support experience.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="flex gap-4 items-center animate-fade-up delay-200" style="flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="Assets/about.jpg" alt="Team meeting"
+                            style="border-radius: 16px; box-shadow: var(--shadow);">
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2>Who We Are</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Founded in 2015, IT SQUAD has grown
+                            from a small detailed helpdesk to a full-service IT provider. We are passionate about
+                            technology and even more passionate about people.</p>
+                        <p style="color: var(--text-muted); margin-bottom: 2rem;">Our mission is to empower businesses
+                            by removing technical hurdles. We believe technology should be an asset, not a liability. We
+                            strive to provide proactive, not just reactive, support to keep your operations running
+                            smoothly.</p>
+
+                        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="card" style="padding: 1rem;">
+                                <h3 style="color: var(--primary);">50+</h3>
+                                <p style="font-size: 0.9rem;">Experts</p>
+                            </div>
+                            <div class="card" style="padding: 1rem;">
+                                <h3 style="color: var(--primary);">10k+</h3>
+                                <p style="font-size: 0.9rem;">Tickets Solved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission & Vision -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Mission & Vision</h2>
+                    <p>Driving innovation and excellence in every interaction.</p>
+                </div>
+                <div class="grid animate-fade-up"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                    <div style="text-align: center;">
+                        <div
+                            style="width: 80px; height: 80px; background: rgba(79, 70, 229, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--primary); font-size: 2.5rem;">
+                            <i class='bx bx-rocket'></i>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p style="color: var(--text-muted); margin-top: 1rem;">To provide enterprise-level IT support
+                            and solutions to businesses of all sizes, ensuring they have the technological foundation to
+                            succeed in a digital world.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div
+                            style="width: 80px; height: 80px; background: rgba(14, 165, 233, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--secondary); font-size: 2.5rem;">
+                            <i class='bx bx-show'></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p style="color: var(--text-muted); margin-top: 1rem;">To be the globally recognized partner of
+                            choice for IT infrastructure and security, known for our reliability, innovation, and
+                            customer-centric approach.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div
+                            style="width: 80px; height: 80px; background: rgba(244, 63, 94, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent); font-size: 2.5rem;">
+                            <i class='bx bx-heart'></i>
+                        </div>
+                        <h3>Our Values</h3>
+                        <p style="color: var(--text-muted); margin-top: 1rem;">Integrity, Transparency, and Excellence.
+                            We believe in building long-term relationships with our clients based on trust and mutual
+                            success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our History Timeline -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Journey</h2>
+                    <p>A decade of excellence and growth.</p>
+                </div>
+                <div class="animate-fade-up"
+                    style="max-width: 800px; margin: 0 auto; position: relative; border-left: 2px solid var(--border); padding-left: 2rem;">
+                    <div style="margin-bottom: 3rem; position: relative;">
+                        <div
+                            style="position: absolute; left: -2.65rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; border: 4px solid var(--bg-body);">
+                        </div>
+                        <h3 style="color: var(--primary);">2024</h3>
+                        <h4>Global Expansion</h4>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">Opened new offices in London and
+                            Singapore to serve our growing international client base.</p>
+                    </div>
+                    <div style="margin-bottom: 3rem; position: relative;">
+                        <div
+                            style="position: absolute; left: -2.65rem; top: 0; width: 20px; height: 20px; background: var(--secondary); border-radius: 50%; border: 4px solid var(--bg-body);">
+                        </div>
+                        <h3 style="color: var(--secondary);">2020</h3>
+                        <h4>Adapting to Remote Work</h4>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">Launched our specialized remote
+                            workforce support package, helping 500+ companies transition seamlessly.</p>
+                    </div>
+                    <div style="margin-bottom: 3rem; position: relative;">
+                        <div
+                            style="position: absolute; left: -2.65rem; top: 0; width: 20px; height: 20px; background: var(--accent); border-radius: 50%; border: 4px solid var(--bg-body);">
+                        </div>
+                        <h3 style="color: var(--accent);">2018</h3>
+                        <h4>Cloud Certification</h4>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">Achieved top-tier partner status with
+                            major cloud providers, solidifying our cloud migration expertise.</p>
+                    </div>
+                    <div style="position: relative;">
+                        <div
+                            style="position: absolute; left: -2.65rem; top: 0; width: 20px; height: 20px; background: var(--text-muted); border-radius: 50%; border: 4px solid var(--bg-body);">
+                        </div>
+                        <h3 style="color: var(--text-muted);">2015</h3>
+                        <h4>Inception</h4>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">Founded by a group of passionate IT
+                            engineers in a small garage in Silicon Valley.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>IT SQUAD</h3>
+                    <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
+                        infrastructure management. We provide reliable, secure, and scalable solutions for companies of
+                        all sizes.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service-details.html">Help Desk</a></li>
+                        <li><a href="service-details.html">Cyber Security</a></li>
+                        <li><a href="service-details.html">Cloud Migration</a></li>
+                        <li><a href="service-details.html">Network Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class='bx bx-map'></i> 123 Innovation Drive, Tech City, CA</li>
+                        <li><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
+                        <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                    </ul>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 IT SQUAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

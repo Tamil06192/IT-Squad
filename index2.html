@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT SQUAD - Enterprise Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Specific overrides for Home 2 Theme */
+        .home2-hero {
+            background-image: url('Assets/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .home2-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            z-index: 1;
+        }
+
+        .home2-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .home2-content h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .stats-bar {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo">
+                <i class='bx bx-network-chart'></i> IT SQUAD PRO
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#" class="active">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home 2 Hero -->
+        <section class="hero home2-hero">
+            <div class="home2-overlay"></div>
+            <div class="container home2-content">
+                <h1>Enterprise IT Management Reimagined</h1>
+                <p style="font-size: 1.5rem; color: #cbd5e1; margin-bottom: 3rem;">Secure. Scalable. Reliable.</p>
+                <div class="flex justify-center gap-1">
+                    <a href="#" class="btn btn-primary" style="background: var(--accent); border: none;">View
+                        Solutions</a>
+                    <a href="#" class="btn btn-outline" style="color: white; border-color: white;">Our Partners</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="container">
+            <div class="stats-bar grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div>Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div>Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15m</div>
+                    <div>Response Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div>Support</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest News / Minimal Grid -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Latest Insights</h2>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div
+                            style="height: 200px; background: #e2e8f0; display: flex; align-items: center; justify-content: center;">
+                            <i class='bx bx-news' style="font-size: 4rem; color: var(--primary);"></i>
+                        </div>
+                        <div style="padding: 2rem;">
+                            <h3>The Future of Cloud Computing</h3>
+                            <p style="color: var(--text-muted); margin: 1rem 0;">How AI is reshaping server management
+                                and what it means for your business.</p>
+                            <a href="#" style="color: var(--primary); font-weight: 600;">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div
+                            style="height: 200px; background: #e2e8f0; display: flex; align-items: center; justify-content: center;">
+                            <i class='bx bx-lock-alt' style="font-size: 4rem; color: var(--secondary);"></i>
+                        </div>
+                        <div style="padding: 2rem;">
+                            <h3>Cybersecurity Trends 2024</h3>
+                            <p style="color: var(--text-muted); margin: 1rem 0;">Top 5 threats to watch out for in the
+                                coming year and how to prepare.</p>
+                            <a href="#" style="color: var(--primary); font-weight: 600;">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Success Stories</h2>
+                    <p>Real results for real businesses.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="border-left: 4px solid var(--primary); padding-left: 1.5rem;">
+                        <h3 style="margin-bottom: 0.5rem;">FinTech Giant</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Migrated 50TB of sensitive data to a
+                            secure hybrid cloud environment with zero downtime.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Read Case Study</a>
+                    </div>
+                    <div style="border-left: 4px solid var(--secondary); padding-left: 1.5rem;">
+                        <h3 style="margin-bottom: 0.5rem;">Healthcare Provider</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Implemented HIPAA-compliant network
+                            infrastructure for 15 hospital locations.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Read Case Study</a>
+                    </div>
+                    <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                        <h3 style="margin-bottom: 0.5rem;">Global Logistics</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Deployed IoT monitoring solution for
+                            fleet management, reducing costs by 20%.</p>
+                        <a href="#" style="color: var(--primary); font-weight: 600;">Read Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose IT SQUAD?</h2>
+                    <p>We are dedicated to your success.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center;">
+                        <i class='bx bx-check-shield'
+                            style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h3>Certified Experts</h3>
+                        <p style="color: var(--text-muted);">Our team holds certifications from top tech providers like
+                            Microsoft, Cisco, and AWS.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class='bx bx-timer'
+                            style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h3>24/7 Support</h3>
+                        <p style="color: var(--text-muted);">We are always available to assist you, no matter the time
+                            of day or night.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class='bx bx-dollar-circle'
+                            style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h3>Cost Effective</h3>
+                        <p style="color: var(--text-muted);">We provide enterprise-level solutions at a price point that
+                            works for small businesses.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class='bx bx-smile' style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                        <h3>Customer First</h3>
+                        <p style="color: var(--text-muted);">Your satisfaction is our top priority. We don't stop until
+                            the problem is solved.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Tech News -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Latest Tech News</h2>
+                    <p>Stay updated with the latest in technology.</p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="card" style="padding: 1.5rem;">
+                        <span style="color: var(--primary); font-size: 0.8rem; font-weight: 700;">NEW</span>
+                        <h3 style="margin: 0.5rem 0;">AI in IT Support</h3>
+                        <p style="color: var(--text-muted);">How artificial intelligence is automating ticket resolution
+                            and improving customer satisfaction.</p>
+                        <a href="#"
+                            style="color: var(--primary); font-weight: 600; display: inline-block; margin-top: 1rem;">Read
+                            Article &rarr;</a>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <span style="color: var(--primary); font-size: 0.8rem; font-weight: 700;">UPDATE</span>
+                        <h3 style="margin: 0.5rem 0;">Windows 12 Rumors</h3>
+                        <p style="color: var(--text-muted);">Everything we know so far about the upcoming operating
+                            system from Microsoft.</p>
+                        <a href="#"
+                            style="color: var(--primary); font-weight: 600; display: inline-block; margin-top: 1rem;">Read
+                            Article &rarr;</a>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <span style="color: var(--primary); font-size: 0.8rem; font-weight: 700;">SECURITY</span>
+                        <h3 style="margin: 0.5rem 0;">Zero Trust Architecture</h3>
+                        <p style="color: var(--text-muted);">Why modern enterprises are moving towards a Zero Trust
+                            security model.</p>
+                        <a href="#"
+                            style="color: var(--primary); font-weight: 600; display: inline-block; margin-top: 1rem;">Read
+                            Article &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted Partners -->
+        <section>
+            <div class="container" style="text-align: center;">
+                <p style="color: var(--text-muted); font-weight: 600; letter-spacing: 1px; margin-bottom: 2rem;">TRUSTED
+                    BY INDUSTRY LEADERS</p>
+                <div class="flex justify-center" style="gap: 3rem; flex-wrap: wrap; opacity: 0.6;">
+                    <h2 style="color: var(--text-main);">MICROSOFT</h2>
+                    <h2 style="color: var(--text-main);">GOOGLE</h2>
+                    <h2 style="color: var(--text-main);">AMAZON</h2>
+                    <h2 style="color: var(--text-main);">CISCO</h2>
+                    <h2 style="color: var(--text-main);">IBM</h2>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>IT SQUAD</h3>
+                    <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
+                        infrastructure management. We provide reliable, secure, and scalable solutions for companies of
+                        all sizes.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service-details.html">Help Desk</a></li>
+                        <li><a href="service-details.html">Cyber Security</a></li>
+                        <li><a href="service-details.html">Cloud Migration</a></li>
+                        <li><a href="service-details.html">Network Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class='bx bx-map'></i> 123 Innovation Drive, Tech City, CA</li>
+                        <li><i class='bx bx-phone'></i> +1 (555) 123-4567</li>
+                        <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                    </ul>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="#" style="color: var(--primary); font-size: 1.5rem;"><i
+                                class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 IT SQUAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

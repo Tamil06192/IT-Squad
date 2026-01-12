@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body style="min-height: 100vh; background: var(--gradient-hero); display: flex; flex-direction: column;">
+
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo">
+                <i class='bx bx-code-block'></i> IT SQUAD
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#" class="active">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="animate-fade-up"
+        style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+        <div style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;">
+            <i class='bx bx-rocket'></i>
+        </div>
+
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Coming Soon</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin-bottom: 3rem;">
+            We are working hard to bring you something amazing. Stay tuned for updates!
+        </p>
+
+        <div style="display: flex; gap: 1rem; margin-bottom: 3rem;">
+            <div class="card" style="padding: 1rem 2rem; min-width: 100px;">
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">14</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Days</div>
+            </div>
+            <div class="card" style="padding: 1rem 2rem; min-width: 100px;">
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">08</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Hours</div>
+            </div>
+            <div class="card" style="padding: 1rem 2rem; min-width: 100px;">
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">45</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Minutes</div>
+            </div>
+        </div>
+
+        <form style="display: flex; gap: 0.5rem; width: 100%; max-width: 400px;">
+            <input type="email" placeholder="Enter your email"
+                style="flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: 8px;">
+            <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+
+        <a href="index.html"
+            style="margin-top: 3rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+            <i class='bx bx-left-arrow-alt'></i> Back to Home
+        </a>
+    </main>
+
+</body>
+
+</html>

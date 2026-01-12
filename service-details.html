@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details - IT SQUAD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD</a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Home <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#">Pages <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="pricing.html">Pricing</a>
+                            <a href="blog.html">Blog</a>
+                            <a href="404.html">404</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="controls">
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐RTL</button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- specific service hero -->
+        <section class="hero" style="min-height: 40vh;">
+            <div class="container" style="text-align: center;">
+                <div class="hero-content" style="margin: 0 auto;">
+                    <h1>Network Solutions</h1>
+                    <p style="margin: 0 auto;">Secure, reliable, and high-performance network infrastructure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Overview -->
+        <section>
+            <div class="container">
+                <div class="flex" style="flex-wrap: wrap; gap: 4rem; align-items: start;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Server Room" style="border-radius: 16px; box-shadow: var(--shadow);">
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Comprehensive Network Management</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                            We provide end-to-end network solutions tailored to your business needs. From initial design
+                            and cabling to security implementation and ongoing monitoring, our certified experts ensure
+                            your infrastructure is robust and scalable.
+                        </p>
+                        <ul style="margin-bottom: 2rem;">
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check-circle'
+                                    style="color: var(--primary); margin-right: 0.5rem;"></i> LAN/WAN Design &
+                                Implementation</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check-circle'
+                                    style="color: var(--primary); margin-right: 0.5rem;"></i> Wireless Connectivity
+                                Solutions</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check-circle'
+                                    style="color: var(--primary); margin-right: 0.5rem;"></i> Network Security &
+                                Firewalls</li>
+                            <li style="margin-bottom: 0.5rem;"><i class='bx bx-check-circle'
+                                    style="color: var(--primary); margin-right: 0.5rem;"></i> VPN & Remote Access Setup
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing for file -->
+        <section style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Transparent Pricing</h2>
+                    <p>Choose the plan that fits your business size.</p>
+                </div>
+                <!-- Simple 3-col pricing -->
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Basic -->
+                    <div class="card pricing-card" style="text-align: center; border: 1px solid var(--border);">
+                        <h3 style="margin-bottom: 0.5rem;">Starter</h3>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem;">
+                            $49<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                        <ul style="text-align: left; margin-bottom: 2rem;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Basic Network
+                                Monitoring</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Remote Support</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Next-Day Response
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-outline" style="width: 100%;">Choose Plan</a>
+                    </div>
+                    <!-- Pro -->
+                    <div class="card pricing-card"
+                        style="text-align: center; border: 2px solid var(--primary); transform: scale(1.05);">
+                        <div
+                            style="background: var(--primary); color: white; padding: 5px 10px; display: inline-block; border-radius: 20px; font-size: 0.8rem; margin-bottom: 1rem;">
+                            Most Popular</div>
+                        <h3 style="margin-bottom: 0.5rem;">Professional</h3>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem;">
+                            $149<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                        <ul style="text-align: left; margin-bottom: 2rem;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">24/7 Network
+                                Monitoring</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Priority Remote &
+                                Onsite Support</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Security Audits</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">4-Hour Response</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Choose Plan</a>
+                    </div>
+                    <!-- Enterprise -->
+                    <div class="card pricing-card" style="text-align: center; border: 1px solid var(--border);">
+                        <h3 style="margin-bottom: 0.5rem;">Enterprise</h3>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem;">
+                            $399<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                        <ul style="text-align: left; margin-bottom: 2rem;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Dedicated Network
+                                Engineer</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Advanced Threat
+                                Protection</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">Unlimited Support
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">1-Hour Response</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline" style="width: 100%;">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+            <div class="container" style="max-width: 800px;">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Common questions about our network services.</p>
+                </div>
+                <div class="accordion">
+                    <!-- Item 1 -->
+                    <div class="accordion-item" style="border-bottom: 1px solid var(--border);">
+                        <button class="accordion-header"
+                            style="width: 100%; text-align: left; padding: 1.5rem 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-main);">
+                            <span>What happens if my network goes down?</span>
+                            <i class='bx bx-plus' style="color: var(--primary); font-size: 1.5rem;"></i>
+                        </button>
+                        <div class="accordion-content"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding-bottom: 1.5rem; color: var(--text-muted);">
+                                Our monitoring systems alert us immediately. Depending on your plan, we will begin
+                                troubleshooting remotely within minutes, or dispatch a technician if hardware failure is
+                                suspected.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="accordion-item" style="border-bottom: 1px solid var(--border);">
+                        <button class="accordion-header"
+                            style="width: 100%; text-align: left; padding: 1.5rem 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-main);">
+                            <span>Can you help with Wi-Fi dead zones?</span>
+                            <i class='bx bx-plus' style="color: var(--primary); font-size: 1.5rem;"></i>
+                        </button>
+                        <div class="accordion-content"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding-bottom: 1.5rem; color: var(--text-muted);">
+                                Yes! We conduct heat mapping surveys to identify dead zones and interference, then
+                                deploy access points strategically to maximize coverage.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="accordion-item" style="border-bottom: 1px solid var(--border);">
+                        <button class="accordion-header"
+                            style="width: 100%; text-align: left; padding: 1.5rem 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-main);">
+                            <span>Do you provide hardware?</span>
+                            <i class='bx bx-plus' style="color: var(--primary); font-size: 1.5rem;"></i>
+                        </button>
+                        <div class="accordion-content"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <p style="padding-bottom: 1.5rem; color: var(--text-muted);">
+                                We partner with major vendors like Cisco, Ubiquiti, and Dell to procure hardware at
+                                competitive prices for our clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>IT SQUAD</h3>
+                    <p style="color: var(--text-muted);">Empowering businesses with top-tier IT support and
+                        infrastructure management.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Help Desk</a></li>
+                        <li><a href="#">Cyber Security</a></li>
+                        <li><a href="#">Cloud Migration</a></li>
+                        <li><a href="#">Network Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class='bx bx-map'></i> 123 Tech Street, Silicon Valley</li>
+                        <li><i class='bx bx-phone'></i> +1 234 567 890</li>
+                        <li><i class='bx bx-envelope'></i> support@itsquad.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 IT SQUAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+    <script>
+        // Simple FAQ script
+        const accHeaders = document.querySelectorAll('.accordion-header');
+        accHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+
+                // Toggle current
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    icon.classList.replace('bx-minus', 'bx-plus');
+                } else {
+                    // Close others (optional)
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.accordion-header i').forEach(i => i.classList.replace('bx-minus', 'bx-plus'));
+
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.replace('bx-plus', 'bx-minus');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
