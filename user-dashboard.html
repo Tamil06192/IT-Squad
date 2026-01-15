@@ -8,75 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        body {
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            background-color: var(--bg-body);
-        }
-
-        .dashboard-container {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            flex: 1;
-            min-height: 0;
-            /* Crucial for nested scrollbars */
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            background-color: var(--bg-card);
-            border-right: 1px solid var(--border);
-            padding: 2rem 1rem;
-            overflow-y: auto;
-            height: 100%;
-            /* Explicitly enforce desktop state */
-            position: static;
-            transform: none;
-            display: block;
-            width: auto;
-            z-index: auto;
-        }
-
-        .main-content {
-            padding: 2rem;
-            background-color: var(--bg-body);
-            overflow-y: auto;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-        }
-
+        /* Dashboard-specific table adjustments */
         table {
-            width: 100%;
-            border-collapse: collapse;
             background: var(--bg-card);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
-        }
-
-        .sidebar-menu a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            border-radius: 8px;
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .sidebar-menu a:hover,
-        .sidebar-menu a.active {
-            background-color: var(--bg-body);
-            color: var(--primary);
         }
 
         th,
@@ -112,73 +49,16 @@
             background-color: rgba(34, 197, 94, 0.1);
             color: #22c55e;
         }
-
-        @media(max-width: 768px) {
-            .dashboard-container {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                position: fixed;
-                left: 0;
-                top: 74px;
-                bottom: 0;
-                width: 250px;
-                z-index: 1000;
-                background-color: var(--bg-card);
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                display: block;
-                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-                will-change: transform;
-            }
-
-            .sidebar.active {
-                transform: translateX(0);
-            }
-
-            .sidebar-overlay {
-                position: fixed;
-                top: 74px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 999;
-                display: none;
-                backdrop-filter: blur(2px);
-            }
-
-            .sidebar-overlay.active {
-                display: block;
-            }
-        }
-
-        /* HARD SAFEGUARD: Force desktop layout on larger screens */
-        @media(min-width: 769px) {
-            .dashboard-container {
-                grid-template-columns: 250px 1fr !important;
-            }
-
-            .sidebar {
-                position: static !important;
-                transform: none !important;
-                display: block !important;
-                width: auto !important;
-                box-shadow: none !important;
-            }
-
-            .sidebar-overlay {
-                display: none !important;
-            }
-        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
-<body>
+<body class="dashboard-page">
     <header>
         <div class="container flex justify-between items-center">
-            <a href="index.html" class="logo"><i class='bx bx-code-block'></i> IT SQUAD</a>
+            <a href="index.html" class="logo">
+                <i class='bx bx-code-block'></i> IT SQUAD
+            </a>
             <nav>
                 <ul class="nav-links">
                     <li class="dropdown">
@@ -192,56 +72,54 @@
                     <li><a href="services.html">Services</a></li>
 
                     <li class="dropdown">
-                        <a href="user-dashboard.html" class="active">Dashboard <i class='bx bx-chevron-down'></i></a>
+                        <a href="#" class="active">Dashboard <i class='bx bx-chevron-down'></i></a>
                         <div class="dropdown-content">
                             <a href="user-dashboard.html">User Dashboard</a>
                             <a href="admin-dashboard.html">Admin Dashboard</a>
                         </div>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a></li>
+                    <li><a href="register.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Sign
+                            Up</a></li>
                 </ul>
             </nav>
             <div class="user-profile flex items-center gap-1">
                 <span>John Doe</span>
                 <img src="https://ui-avatars.com/api/?name=John+Doe&background=4F46E5&color=fff" alt="User"
                     style="width: 32px; height: 32px; border-radius: 50%;">
-                <div class="controls" style="display: flex; gap: 0.5rem; align-items: center; margin-left: 1rem;">
-                    <button id="rtl-toggle" class="btn-icon-animate" title="RTL Toggle"><i
-                            class='bx bx-globe'></i></button>
-                    <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
-                    <button id="sidebar-toggle" class="btn btn-outline" style="padding: 5px 10px;"><i
-                            class='bx bx-menu'></i></button>
-                </div>
+            </div>
+            <div class="controls" style="display: flex; gap: 0.5rem; align-items: center;">
+                <button id="rtl-toggle" class="btn-icon-animate" title="RTL Toggle"><i class='bx bx-globe'></i></button>
+                <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
+                <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
+                <button id="sidebar-toggle" class="btn btn-outline" style="padding: 5px 10px;"><i
+                        class='bx bx-menu-alt-right'></i></button>
             </div>
         </div>
     </header>
-
     <div class="dashboard-container">
         <aside class="sidebar">
-            <div class="sidebar-menu">
-                <a href="#" class="active" data-tab="dashboard-tab"><i class='bx bx-grid-alt'></i> Dashboard</a>
-                <a href="#" data-tab="new-ticket-tab"><i class='bx bx-plus-circle'></i> New Ticket</a>
-                <a href="#" data-tab="history-tab"><i class='bx bx-history'></i> Ticket History</a>
-                <a href="#" data-tab="profile-tab"><i class='bx bx-user'></i> Profile</a>
-                <a href="index.html"><i class='bx bx-log-out'></i> Logout</a>
+            <div class="sidebar-menu"><a href="#" class="active" data-tab="dashboard-tab"><i
+                        class='bx bx-grid-alt'></i>Dashboard</a><a href="#" data-tab="new-ticket-tab"><i
+                        class='bx bx-plus-circle'></i>New Ticket</a><a href="#" data-tab="history-tab"><i
+                        class='bx bx-history'></i>Ticket History</a><a href="#" data-tab="profile-tab"><i
+                        class='bx bx-user'></i>Profile</a><a href="index.html"><i class='bx bx-log-out'></i>Logout</a>
             </div>
         </aside>
-        <div class="sidebar-overlay"></div>
-
         <main class="main-content">
             <!-- Dashboard Tab -->
             <div id="dashboard-tab" class="tab-content">
                 <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
-                    <h2>My Dashboard</h2>
-                    <button class="btn btn-primary"
+                    <h2>My Dashboard</h2><button class="btn btn-primary"
                         onclick="document.querySelector('[data-tab=\'new-ticket-tab\']').click()"><i
-                            class='bx bx-plus'></i> New Support Ticket</button>
+                            class='bx bx-plus'></i>New Support Ticket</button>
                 </div>
-
                 <!-- Stats -->
                 <div class="grid"
                     style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                    <!-- ... (Existing Stats Cards - Keeping mostly same but ensuring blue tint via style.css changes already made) ... -->
+                    <!-- ... (Existing Stats Cards - Keeping mostly same but ensuring blue tint via style.css
+                                changes already made) ... -->
                     <div class="card flex items-center gap-1 bg-subtle-success" style="padding: 1.5rem;">
                         <!-- Minty tint example -->
                         <div
@@ -250,7 +128,8 @@
                         </div>
                         <div>
                             <div style="font-size: 1.5rem; font-weight: 700;">12</div>
-                            <div style="color: var(--text-muted); font-size: 0.9rem;">Total Tickets</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">Total Tickets
+                            </div>
                         </div>
                     </div>
                     <div class="card flex items-center gap-1 bg-subtle-warning" style="padding: 1.5rem;">
@@ -287,253 +166,34 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Analytics / Charts -->
+                <!-- Interactive Analytics Grid (6 Standardized Charts) -->
                 <div class="grid"
-                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                     <div class="card">
                         <h3>Ticket Volume (Last 6 Months)</h3>
-                        <div style="display: grid; grid-template-columns: 40px 1fr; gap: 1rem; height: 250px;">
-                            <!-- Y Axis -->
-                            <div
-                                style="display: flex; flex-direction: column; justify-content: space-between; text-align: right; color: var(--text-muted); font-size: 0.8rem; height: 200px; padding-top: 1rem;">
-                                <span>100%</span>
-                                <span>75%</span>
-                                <span>50%</span>
-                                <span>25%</span>
-                                <span>0%</span>
-                            </div>
-                            <!-- Chart Area -->
-                            <div
-                                style="position: relative; height: 200px; border-left: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-top: 1rem;">
-                                <!-- Grid Lines -->
-                                <div
-                                    style="position: absolute; width: 100%; top: 0; border-top: 1px dashed var(--border); opacity: 0.5;">
-                                </div>
-                                <div
-                                    style="position: absolute; width: 100%; top: 25%; border-top: 1px dashed var(--border); opacity: 0.5;">
-                                </div>
-                                <div
-                                    style="position: absolute; width: 100%; top: 50%; border-top: 1px dashed var(--border); opacity: 0.5;">
-                                </div>
-                                <div
-                                    style="position: absolute; width: 100%; top: 75%; border-top: 1px dashed var(--border); opacity: 0.5;">
-                                </div>
-
-                                <!-- Bars Container -->
-                                <div
-                                    style="display: flex; align-items: flex-end; justify-content: space-around; height: 100%; padding: 0 10px;">
-                                    <div
-                                        style="width: 12%; background: var(--primary); height: 40%; border-radius: 4px 4px 0 0; position: relative; transition: height 0.5s ease;">
-                                        <span
-                                            style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: var(--text-muted);">Jan</span>
-                                    </div>
-                                    <div
-                                        style="width: 12%; background: var(--primary); height: 65%; border-radius: 4px 4px 0 0; position: relative;">
-                                        <span
-                                            style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: var(--text-muted);">Feb</span>
-                                    </div>
-                                    <div
-                                        style="width: 12%; background: var(--primary); height: 30%; border-radius: 4px 4px 0 0; position: relative;">
-                                        <span
-                                            style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: var(--text-muted);">Mar</span>
-                                    </div>
-                                    <div
-                                        style="width: 12%; background: var(--primary); height: 85%; border-radius: 4px 4px 0 0; position: relative;">
-                                        <span
-                                            style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: var(--text-muted);">Apr</span>
-                                    </div>
-                                    <div
-                                        style="width: 12%; background: var(--primary); height: 50%; border-radius: 4px 4px 0 0; position: relative;">
-                                        <span
-                                            style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: var(--text-muted);">May</span>
-                                    </div>
-                                    <div
-                                        style="width: 12%; background: var(--primary); height: 70%; border-radius: 4px 4px 0 0; position: relative;">
-                                        <span
-                                            style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: var(--text-muted);">Jun</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="user-volume-chart" style="height: 280px;"></div>
                     </div>
-                    <div class="card">
-                        <h3>Response Time Analysis</h3>
-                        <div style="margin-top: 1rem;">
-                            <div style="margin-bottom: 1rem;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Email Support</span>
-                                    <span>2h avg</span>
-                                </div>
-                                <div style="width: 100%; height: 8px; background: var(--border); border-radius: 4px;">
-                                    <div
-                                        style="width: 40%; height: 100%; background: var(--secondary); border-radius: 4px;">
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="margin-bottom: 1rem;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Live Chat</span>
-                                    <span>5m avg</span>
-                                </div>
-                                <div style="width: 100%; height: 8px; background: var(--border); border-radius: 4px;">
-                                    <div
-                                        style="width: 85%; height: 100%; background: var(--accent); border-radius: 4px;">
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="margin-bottom: 1rem;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Phone Support</span>
-                                    <span>10m avg</span>
-                                </div>
-                                <div style="width: 100%; height: 8px; background: var(--border); border-radius: 4px;">
-                                    <div
-                                        style="width: 60%; height: 100%; background: var(--primary); border-radius: 4px;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Extra Charts Row (Ticket Dist + Request Types) -->
-                <!-- [Existing Interactive Charts Logic Here] -->
-                <div class="grid"
-                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                    <!-- Ticket Distribution -->
                     <div class="card">
                         <h3>Ticket Distribution</h3>
-                        <div id="ticket-dist-chart"
-                            style="display: flex; justify-content: center; margin-top: 1rem; position: relative;">
-                            <svg viewBox="0 0 36 36" style="width: 200px; height: 200px; transform: rotate(-90deg);">
-                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="var(--primary)" stroke-width="3"
-                                    stroke-dasharray="60 100" stroke-dashoffset="0"
-                                    style="cursor: pointer; transition: stroke-width 0.2s;"
-                                    onmouseover="this.style.strokeWidth='4'" onmouseout="this.style.strokeWidth='3'"
-                                    onclick="updateChartCenter('ticket-dist-chart', 'Resolved', '60%')" />
-                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="var(--secondary)"
-                                    stroke-width="3" stroke-dasharray="25 100" stroke-dashoffset="-60"
-                                    style="cursor: pointer; transition: stroke-width 0.2s;"
-                                    onmouseover="this.style.strokeWidth='4'" onmouseout="this.style.strokeWidth='3'"
-                                    onclick="updateChartCenter('ticket-dist-chart', 'Open', '25%')" />
-                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="var(--accent)" stroke-width="3"
-                                    stroke-dasharray="15 100" stroke-dashoffset="-85"
-                                    style="cursor: pointer; transition: stroke-width 0.2s;"
-                                    onmouseover="this.style.strokeWidth='4'" onmouseout="this.style.strokeWidth='3'"
-                                    onclick="updateChartCenter('ticket-dist-chart', 'Critical', '15%')" />
-                            </svg>
-                            <div
-                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none;">
-                                <span class="chart-value"
-                                    style="font-size: 2rem; font-weight: 700; display: block; line-height: 1;">100%</span>
-                                <span class="chart-label"
-                                    style="color: var(--text-muted); font-size: 0.8rem;">Status</span>
-                            </div>
-                        </div>
-                        <div
-                            style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; font-size: 0.9rem;">
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 10px; height: 10px; background: var(--primary); border-radius: 50%;">
-                                </div> Resolved
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <div
-                                    style="width: 10px; height: 10px; background: var(--secondary); border-radius: 50%;">
-                                </div> Open
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 10px; height: 10px; background: var(--accent); border-radius: 50%;">
-                                </div> Critical
-                            </div>
-                        </div>
+                        <div id="ticket-dist-chart" style="height: 280px;"></div>
                     </div>
-
-                    <!-- Weekly Resolution Trend -->
                     <div class="card">
                         <h3>Weekly Resolution Trend</h3>
-                        <div style="display: grid; grid-template-columns: 30px 1fr; gap: 1rem;">
-                            <!-- Y Axis -->
-                            <div
-                                style="display: flex; flex-direction: column; justify-content: space-between; text-align: right; color: var(--text-muted); font-size: 0.8rem; height: 200px; padding: 1rem 0;">
-                                <span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
-                            </div>
-                            <div>
-                                <div
-                                    style="position: relative; width: 100%; height: 200px; padding: 1rem 0; border-left: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-                                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"
-                                        style="width: 100%; height: 100%;">
-                                        <path
-                                            d="M0,50 L10,40 L20,45 L30,30 L40,35 L50,20 L60,25 L70,15 L80,10 L90,15 L100,5"
-                                            fill="none" stroke="var(--primary)" stroke-width="2" />
-                                        <path
-                                            d="M0,50 L10,40 L20,45 L30,30 L40,35 L50,20 L60,25 L70,15 L80,10 L90,15 L100,5 V50 H0 Z"
-                                            fill="url(#gradient)" opacity="0.2" />
-                                        <defs>
-                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                <stop offset="0%" style="stop-color:var(--primary);stop-opacity:1" />
-                                                <stop offset="100%" style="stop-color:var(--primary);stop-opacity:0" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
-                                </div>
-                                <div
-                                    style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.8rem;">
-                                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="weekly-resolution-chart" style="height: 280px;"></div>
                     </div>
-
-                    <!-- Request Types -->
                     <div class="card">
                         <h3>Request Types</h3>
-                        <div id="request-types-chart"
-                            style="display: flex; justify-content: center; margin-top: 1rem; position: relative;">
-                            <svg viewBox="0 0 36 36" style="width: 200px; height: 200px; transform: rotate(-90deg);">
-                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="var(--info)" stroke-width="3"
-                                    stroke-dasharray="40 100" stroke-dashoffset="0"
-                                    style="cursor: pointer; transition: stroke-width 0.2s;"
-                                    onmouseover="this.style.strokeWidth='4'" onmouseout="this.style.strokeWidth='3'"
-                                    onclick="updateChartCenter('request-types-chart', 'Hardware', '40%')" />
-                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="var(--purple)" stroke-width="3"
-                                    stroke-dasharray="30 100" stroke-dashoffset="-40"
-                                    style="cursor: pointer; transition: stroke-width 0.2s;"
-                                    onmouseover="this.style.strokeWidth='4'" onmouseout="this.style.strokeWidth='3'"
-                                    onclick="updateChartCenter('request-types-chart', 'Software', '30%')" />
-                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="var(--teal)" stroke-width="3"
-                                    stroke-dasharray="30 100" stroke-dashoffset="-70"
-                                    style="cursor: pointer; transition: stroke-width 0.2s;"
-                                    onmouseover="this.style.strokeWidth='4'" onmouseout="this.style.strokeWidth='3'"
-                                    onclick="updateChartCenter('request-types-chart', 'Network', '30%')" />
-                            </svg>
-                            <div
-                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none;">
-                                <span class="chart-value"
-                                    style="font-size: 1.5rem; font-weight: 700; display: block; line-height: 1;">Top
-                                    3</span>
-                                <span class="chart-label"
-                                    style="color: var(--text-muted); font-size: 0.9rem;">Categories</span>
-                            </div>
-                        </div>
-                        <div
-                            style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; font-size: 0.85rem;">
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 10px; height: 10px; background: var(--info); border-radius: 50%;">
-                                </div> Hardware
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 10px; height: 10px; background: var(--purple); border-radius: 50%;">
-                                </div> Software
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 10px; height: 10px; background: var(--teal); border-radius: 50%;">
-                                </div> Network
-                            </div>
-                        </div>
+                        <div id="request-types-chart" style="height: 280px;"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Support Channels</h3>
+                        <div id="support-channels-chart" style="height: 280px;"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Satisfaction Score</h3>
+                        <div id="satisfaction-score-chart" style="height: 280px;"></div>
                     </div>
                 </div>
-
                 <!-- Recent Activity -->
                 <div style="margin-bottom: 2rem;">
                     <h3>Recent Activity</h3>
@@ -546,8 +206,8 @@
                                 </div>
                                 <div>
                                     <p style="font-weight: 500;">Ticket #1024 updated</p><small
-                                        style="color: var(--text-muted);">Agent marked ticket as 'In Progress' - 2 hours
-                                        ago</small>
+                                        style="color: var(--text-muted);">Agent marked ticket as
+                                        'In Progress' - 2 hours ago</small>
                                 </div>
                             </li>
                             <li
@@ -557,8 +217,8 @@
                                 </div>
                                 <div>
                                     <p style="font-weight: 500;">New Login Detected</p><small
-                                        style="color: var(--text-muted);">Logged in from Chrome on Windows - 5 hours
-                                        ago</small>
+                                        style="color: var(--text-muted);">Logged in from Chrome
+                                        on Windows - 5 hours ago</small>
                                 </div>
                             </li>
                             <li style="padding: 1rem; display: flex; gap: 1rem;">
@@ -567,85 +227,73 @@
                                 </div>
                                 <div>
                                     <p style="font-weight: 500;">Password Changed</p><small
-                                        style="color: var(--text-muted);">Security alert: Password was updated
-                                        successfully - 1 day ago</small>
+                                        style="color: var(--text-muted);">Security alert:
+                                        Password was updated successfully - 1 day ago</small>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-
             <!-- New Ticket Tab -->
             <div id="new-ticket-tab" class="tab-content" style="display: none;">
                 <h2 style="margin-bottom: 2rem;">Create New Ticket</h2>
                 <div class="card bg-subtle-info" style="max-width: 800px; margin: 0 auto;">
                     <!-- Light Indigo Shade -->
                     <form>
-                        <div class="form-group">
-                            <label class="form-label">Subject</label>
-                            <input type="text" class="form-control" placeholder="Brief summary of the issue">
-                        </div>
-                        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div class="form-group">
-                                <label class="form-label">Category</label>
-                                <select class="form-control">
+                        <div class="form-group"><label class="form-label">Subject</label><input type="text"
+                                class="form-control" placeholder="Brief summary of the issue"></div>
+                        <div class="grid" style="gap: 1rem;">
+                            <div class="form-group"><label class="form-label">Category</label><select
+                                    class="form-control">
                                     <option>Hardware</option>
                                     <option>Software</option>
                                     <option>Network</option>
                                     <option>Access/Login</option>
                                     <option>Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Priority</label>
-                                <select class="form-control">
+                                </select></div>
+                            <div class="form-group"><label class="form-label">Priority</label><select
+                                    class="form-control">
                                     <option>Low</option>
                                     <option>Medium</option>
                                     <option>High</option>
                                     <option>Critical</option>
-                                </select>
-                            </div>
+                                </select></div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Description</label>
-                            <textarea class="form-control" rows="6"
-                                placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Attachments</label>
+                        <div class="form-group"><label class="form-label">Description</label><textarea
+                                class="form-control" rows="6"
+                                placeholder="Detailed description of the problem..."></textarea></div>
+                        <div class="form-group"><label class="form-label">Attachments</label>
                             <div
                                 style="border: 2px dashed var(--border); padding: 2rem; text-align: center; border-radius: 8px; background: rgba(255,255,255,0.5);">
                                 <i class='bx bx-cloud-upload' style="font-size: 2rem; color: var(--primary);"></i>
-                                <p style="color: var(--text-muted);">Drag & drop files here or click to browse</p>
+                                <p style="color: var(--text-muted);">Drag & drop files here or click to
+                                    browse</p>
                             </div>
                         </div>
-                        <div class="flex justify-end gap-1">
-                            <button type="button" class="btn btn-outline">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit Ticket</button>
-                        </div>
+                        <div class="flex justify-end gap-1"><button type="button"
+                                class="btn btn-outline">Cancel</button><button type="submit"
+                                class="btn btn-primary">Submit Ticket</button></div>
                     </form>
                 </div>
             </div>
-
             <!-- Ticket History Tab -->
             <div id="history-tab" class="tab-content" style="display: none;">
                 <h2 style="margin-bottom: 2rem;">Ticket History</h2>
-                <div class="card bg-subtle-info"> <!-- Very light slate -->
-                    <div class="flex justify-between items-center" style="margin-bottom: 1rem;">
-                        <input type="text" placeholder="Search tickets..." class="form-control"
-                            style="max-width: 300px;">
-                        <div class="flex gap-1">
-                            <select class="form-control" style="width: auto;">
+                <div class="card bg-subtle-info">
+                    <!-- Very light slate -->
+                    <div class="flex justify-between items-center" style="margin-bottom: 1rem;"><input type="text"
+                            placeholder="Search tickets..." class="form-control" style="max-width: 300px;">
+                        <div class="flex gap-1"><select class="form-control" style="width: auto;">
                                 <option>All Statuses</option>
                                 <option>Open</option>
                                 <option>Closed</option>
-                            </select>
-                            <button class="btn btn-outline"><i class='bx bx-filter'></i> Filter</button>
+                            </select><button class="btn btn-outline"><i class='bx bx-filter'></i>Filter</button>
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table> <!-- Inner table white for contrast -->
+                        <table>
+                            <!-- Inner table white for contrast -->
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -659,90 +307,87 @@
                                 <tr>
                                     <td>#1024</td>
                                     <td>VPN Connection Failed</td>
-                                    <td>Oct 24, 2024</td>
+                                    <td>Oct 24,
+                                        2024</td>
                                     <td><span class="status-badge status-open">Open</span></td>
                                     <td><a href="#" style="color: var(--primary);">View</a></td>
                                 </tr>
                                 <tr>
                                     <td>#1023</td>
                                     <td>Software License Renewal</td>
-                                    <td>Oct 22, 2024</td>
-                                    <td><span class="status-badge status-pending">Pending</span></td>
+                                    <td>Oct 22,
+                                        2024</td>
+                                    <td><span class="status-badge status-pending">Pending</span>
+                                    </td>
                                     <td><a href="#" style="color: var(--primary);">View</a></td>
                                 </tr>
                                 <tr>
                                     <td>#1020</td>
                                     <td>Password Reset</td>
-                                    <td>Oct 20, 2024</td>
+                                    <td>Oct 20,
+                                        2024</td>
                                     <td><span class="status-badge status-closed">Closed</span></td>
                                     <td><a href="#" style="color: var(--primary);">View</a></td>
                                 </tr>
                                 <tr>
                                     <td>#1019</td>
                                     <td>Printer Not responding</td>
-                                    <td>Oct 19, 2024</td>
+                                    <td>Oct 19,
+                                        2024</td>
                                     <td><span class="status-badge status-closed">Closed</span></td>
                                     <td><a href="#" style="color: var(--primary);">View</a></td>
                                 </tr>
                                 <tr>
                                     <td>#1015</td>
                                     <td>New Hardware Request</td>
-                                    <td>Oct 15, 2024</td>
+                                    <td>Oct 15,
+                                        2024</td>
                                     <td><span class="status-badge status-open">Open</span></td>
                                     <td><a href="#" style="color: var(--primary);">View</a></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="pagination">
-                        <a href="#" class="page-link active">1</a>
-                        <a href="#" class="page-link">2</a>
-                        <a href="#" class="page-link">3</a>
-                    </div>
+                    <div class="pagination"><a href="#" class="page-link active">1</a><a href="#"
+                            class="page-link">2</a><a href="#" class="page-link">3</a></div>
                 </div>
             </div>
-
             <!-- Profile Tab -->
             <div id="profile-tab" class="tab-content" style="display: none;">
                 <h2 style="margin-bottom: 2rem;">My Profile</h2>
                 <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div class="card bg-subtle-info" style="text-align: center;"> <!-- Light Blue -->
+                    <div class="card bg-subtle-info" style="text-align: center;">
+                        <!-- Light Blue -->
                         <div style="position: relative; display: inline-block; margin-bottom: 1rem;">
                             <img src="https://ui-avatars.com/api/?name=John+Doe&background=4F46E5&color=fff&size=128"
                                 alt="User"
-                                style="border-radius: 50%; border: 4px solid white; box-shadow: var(--shadow);">
-                            <button class="btn btn-primary"
+                                style="border-radius: 50%; border: 4px solid white; box-shadow: var(--shadow);"><button
+                                class="btn btn-primary"
                                 style="position: absolute; bottom: 0; right: 0; padding: 4px 8px; border-radius: 50%;"><i
                                     class='bx bx-camera'></i></button>
                         </div>
                         <h3>John Doe</h3>
                         <p style="color: var(--text-muted);">Marketing Specialist</p>
                         <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem;">
-                            <span class="badge badge-primary">Employee</span>
-                            <span class="badge badge-secondary">Marketing</span>
+                            <span class="badge badge-primary">Employee</span><span
+                                class="badge badge-secondary">Marketing</span>
                         </div>
                     </div>
                     <div class="card">
                         <h3 style="margin-bottom: 1.5rem;">Edit Profile</h3>
                         <form>
                             <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
-                                <div class="form-group">
-                                    <label class="form-label">First Name</label>
-                                    <input type="text" class="form-control" value="John">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" value="Doe">
+                                <div class="form-group"><label class="form-label">First
+                                        Name</label><input type="text" class="form-control" value="John"></div>
+                                <div class="form-group"><label class="form-label">Last
+                                        Name</label><input type="text" class="form-control" value="Doe">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-control" value="john.doe@company.com">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" value="+1 (555) 123-4567">
-                            </div>
+                            <div class="form-group"><label class="form-label">Email
+                                    Address</label><input type="email" class="form-control"
+                                    value="john.doe@company.com"></div>
+                            <div class="form-group"><label class="form-label">Phone Number</label><input type="tel"
+                                    class="form-control" value="+1 (555) 123-4567"></div>
                             <button class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
@@ -750,9 +395,9 @@
             </div>
         </main>
     </div>
-
     <script src="main.js"></script>
     <script src="rtltoggle.js"></script>
+    <div class="sidebar-overlay"></div>
 </body>
 
 </html>

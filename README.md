@@ -14,8 +14,6 @@ Dark and light theme.
 RTL function
 
 
-One website one theme. Each website different design theme.
-
 Modern colorful UI design
 
 📌All screen sizes should work. (Mobile view and desktop view of all screen sizes)

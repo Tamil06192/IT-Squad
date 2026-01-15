@@ -55,6 +55,16 @@
             z-index: 10;
             border-radius: 1rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-bar {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
         }
 
         .stat-item {
@@ -95,12 +105,14 @@
                         </div>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Login</a>
-                    </li>
+                    <li><a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a></li>
+                    <li><a href="register.html" class="btn btn-primary" style="padding: 8px 16px; color: white;">Sign
+                            Up</a></li>
                 </ul>
             </nav>
             <div class="controls">
-                <button id="-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="padding: 5px 10px; font-size: 0.8rem;">🌐</button>
                 <button id="theme-toggle" class="icon-btn"><i class='bx bx-moon'></i></button>
                 <div id="menu-toggle" class="menu-toggle"><i class='bx bx-menu'></i></div>
             </div>
@@ -124,7 +136,7 @@
 
         <!-- Stats Bar -->
         <div class="container">
-            <div class="stats-bar grid" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="stats-bar">
                 <div class="stat-item">
                     <div class="stat-number" data-target="500">0+</div>
                     <div>Clients</div>
