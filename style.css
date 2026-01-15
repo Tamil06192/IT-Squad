@@ -139,6 +139,23 @@ table {
     display: flex;
 }
 
+.flex-col {
+    flex-direction: column;
+}
+
+.p-1 {
+    padding: 0.5rem;
+}
+
+.p-2 {
+    padding: 1rem;
+}
+
+.p-3 {
+    padding: 1.5rem;
+}
+
+
 .grid {
     display: grid;
 }
@@ -194,9 +211,10 @@ table {
     background: transparent;
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.nav-links a.btn-outline:hover {
     background-color: var(--primary);
-    color: white;
+    color: white !important;
 }
 
 .card {
@@ -493,6 +511,16 @@ footer {
     left: auto;
     right: 0;
 }
+
+[dir="rtl"] .section-title {
+    text-align: right;
+}
+
+[dir="rtl"] .phone-number {
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
